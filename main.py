@@ -4,7 +4,7 @@ from pytube import YouTube
 
 
 def Start_Download():
-    # try:
+   try:
         finishlabel.configure(text="")
         YTLink=url_variable.get()
         if(len(YTLink)==0):
@@ -17,9 +17,8 @@ def Start_Download():
             finishlabel.configure(text="Download Complete",text_color="green")
             inputBox.delete(0, 'end')
             title.configure(text="Insert a Youtube link")
-
-    # except:
-    #     finishlabel.configure(text="Download Error",text_color="red")
+   except:
+        finishlabel.configure(text="Download Error",text_color="red")
 def On_Progress(stream,chunk,bytes_remaining):
     total_size = stream.filesize
     bytes_downloaded = total_size-bytes_remaining
@@ -44,8 +43,6 @@ app.geometry("720x480")
 app.title("YTvidoff")
 
 #Adding UI elements
-#image
-
 #title label
 title=customtkinter.CTkLabel(app,text="Insert a Youtube link")
 title.pack(padx=10, pady=10)
